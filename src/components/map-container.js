@@ -112,12 +112,6 @@ export default function MapContainerFactory(MapPopover, MapControl) {
       MapComponent: MapboxGLMap
     };
 
-    // mapModeSelector = props => this.props.uiState.mode;
-    // mapContainerStylesSelector = createSelector(
-    //   this.mapModeSelector,
-    //   mode => getMapStyle(mode !== EDITOR_MODES.READ_ONLY)
-    // );
-
     constructor(props) {
       super(props);
 
@@ -439,8 +433,9 @@ export default function MapContainerFactory(MapPopover, MapControl) {
         onViewportChange: this._onViewportChange,
         transformRequest
       };
+      const idEdit = uiState.mapControls.mapDraw.active;
 
-      const mapContainerStyles = getMapStyle(uiState.mode);
+      const mapContainerStyles = getMapStyle(idEdit);
 
       return (
         <StyledMapContainer style={MAP_STYLE_CONTAINER}>
@@ -474,7 +469,7 @@ export default function MapContainerFactory(MapPopover, MapControl) {
               {this._renderMapboxOverlays()}
             </MapComponent>
           </div>
-          {mapStyle.topMapStyle && (
+          {(mapStyle.topMapStyle || idEdit) && (
             <div style={mapContainerStyles.top}>
               <MapComponent
                 {...mapProps}
@@ -482,9 +477,9 @@ export default function MapContainerFactory(MapPopover, MapControl) {
                 mapStyle={mapStyle.topMapStyle}
               >
                 <StyledDraw
-                  mode={uiState.mapControls.mapDraw.active}
                   onUpdate={visStateActions.setFeatures}
-                  editor={visState.editor}
+                  features={visState.editor.features}
+                  editor={uiState.editor}
                 />
               </MapComponent>
             </div>
