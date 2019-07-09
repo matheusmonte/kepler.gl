@@ -73,7 +73,10 @@ class ColorSelector extends Component {
       })
     ),
     inputTheme: PropTypes.string,
-    disabled: PropTypes.bool
+    disabled: PropTypes.bool,
+    customPalette: PropTypes.object,
+    setCustomPalette: PropTypes.func,
+    showSketcher: PropTypes.bool
   };
 
   static defaultProps = {
@@ -85,7 +88,7 @@ class ColorSelector extends Component {
   };
 
   handleClickOutside = e => {
-    if (this.state.editing !== false) {
+    if (this.state.editing !== false & this.props.showSketcher===false) {
       this.setState({editing: false});
     }
   };
@@ -104,8 +107,9 @@ class ColorSelector extends Component {
   };
 
   render() {
-    const {colorSets, disabled, inputTheme} = this.props;
-    const {editing} = this.state;
+
+    const {colorSets, disabled, inputTheme, customPalette, setCustomPalette, showSketcher,onToggleSketcherUpdater} = this.props;
+    const { editing } = this.state;
     const currentEditing =
       colorSets[editing] && typeof colorSets[editing] === 'object';
 
@@ -136,11 +140,18 @@ class ColorSelector extends Component {
           ))}
         </InputBoxContainer>
         {currentEditing ? (
-          <StyledPanelDropdown className="color-selector__dropdown">
+          <StyledPanelDropdown
+            className="color-selector__dropdown"
+            style={{overflow: 'auto'}}
+          >
             {colorSets[editing].isRange ? (
               <ColorRangeSelector
                 selectedColorRange={colorSets[editing].selectedColor}
                 onSelectColorRange={this._onSelectColor}
+                customPalette= {customPalette}
+                setCustomPalette={setCustomPalette}
+                showSketcher={showSketcher}
+                onToggleSketcherUpdater={onToggleSketcherUpdater}
               />
             ) : (
               <SingleColorPalette
