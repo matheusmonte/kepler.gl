@@ -17,6 +17,7 @@ const StyledHex = styled.div`
   color: #F0F0F0;
   font-size: 10px;
   padding-left: 10px;
+  font-family: ff-clan-web-pro, 'Helvetica Neue', Helvetica, sans-serif;
   :hover {
       cursor: default;
     }

@@ -16,6 +16,10 @@ const StyledPicker = styled.div`
     input {
       text-align: center;
       font-family: ff-clan-web-pro, 'Helvetica Neue', Helvetica, sans-serif !important;
+      background-color: #3A414C !important;
+      color: #A0A7B4 !important;
+      border-color: #3A414C !important;
+      box-shadow: none !important;
     }
   }
 `;
@@ -44,11 +48,9 @@ class CustomPicker extends Component {
           styles={{
             picker: {
               width: '200px',
-              padding: '10px 10px 0',
+              padding: '10px 10px 8px',
               boxSizing: 'initial',
-              background: '#29323C',
-              borderRadius: '4px',
-              boxShadow: '0 0 0 1px rgba(0,0,0,.15), 0 8px 16px rgba(0,0,0,.15)'
+              background: '#29323C'
             },
             controls: {
               display: 'flex',
