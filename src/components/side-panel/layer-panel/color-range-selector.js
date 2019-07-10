@@ -110,7 +110,7 @@ export default class ColorRangeSelect extends Component {
   }
 
   render() {
-    const { config } = this.state;
+    const {config} = this.state;
     const {customPalette, setCustomPalette, showSketcher,onToggleSketcherUpdater} = this.props;
     return (
       <ColorRangeSelector className="color-range-selector">
@@ -129,7 +129,6 @@ export default class ColorRangeSelect extends Component {
             />
           ))}
         </StyledColorConfig>
-
 
         {config.custom.value ?
           <CustomPalette

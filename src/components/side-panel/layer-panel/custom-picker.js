@@ -9,6 +9,10 @@ import onClickOutside from 'react-onclickoutside';
 
 const StyledPicker = styled.div`
   .sketch-picker {
+    width: 200px;
+    padding: 10px 10px 8px;
+    box-sizing: initial;
+    background: #29323C;
     span {
       color: #6A7485 !important;
       font-family: ff-clan-web-pro, 'Helvetica Neue', Helvetica, sans-serif !important;
@@ -46,12 +50,6 @@ class CustomPicker extends Component {
           disableAlpha={true}
           presetColors={[]}
           styles={{
-            picker: {
-              width: '200px',
-              padding: '10px 10px 8px',
-              boxSizing: 'initial',
-              background: '#29323C'
-            },
             controls: {
               display: 'flex',
               color: "#FFF"

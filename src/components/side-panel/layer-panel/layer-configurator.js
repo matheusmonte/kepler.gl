@@ -115,7 +115,9 @@ export default class LayerConfigurator extends Component {
               <LayerColorSelector
                 {...layerConfiguratorProps}
                 customPalette = { this.props.customPalette }
-                setCustomPalette={this.props.setCustomPalette}/>
+                setCustomPalette={this.props.setCustomPalette}
+                showSketcher={this.props.showSketcher}
+                onToggleSketcherUpdater={this.props.onToggleSketcherUpdater}/>
           )}
           <ConfigGroupCollapsibleContent>
             <ChannelByValueSelector
@@ -224,7 +226,8 @@ export default class LayerConfigurator extends Component {
       <StyledLayerVisualConfigurator>
         {/* Color */}
         <LayerConfigGroup label={'color'} collapsible>
-          <ColorRangeConfig {...visConfiguratorProps} />
+          <ColorRangeConfig {...visConfiguratorProps}
+           />
           <ConfigGroupCollapsibleContent>
             <AggrColorScaleSelector {...layerConfiguratorProps} />
             <ChannelByValueSelector
@@ -508,7 +511,11 @@ export default class LayerConfigurator extends Component {
         {/* Color */}
         <LayerConfigGroup label={'color'} collapsible>
           {layer.config.colorField ? (
-            <ColorRangeConfig {...visConfiguratorProps} />
+            <ColorRangeConfig {...visConfiguratorProps}
+              customPalette = {this.props.customPalette }
+              setCustomPalette={this.props.setCustomPalette}
+              showSketcher={this.props.showSketcher}
+              onToggleSketcherUpdater={this.props.onToggleSketcherUpdater}/>
           ) : (
             <ArcLayerColorSelector
               layer={layer}
@@ -577,7 +584,11 @@ export default class LayerConfigurator extends Component {
             collapsible
           >
             {layer.config.colorField ? (
-              <ColorRangeConfig {...visConfiguratorProps} />
+              <ColorRangeConfig {...visConfiguratorProps}
+                customPalette = { this.props.customPalette }
+                setCustomPalette={this.props.setCustomPalette}
+                showSketcher={this.props.showSketcher}
+                onToggleSketcherUpdater={this.props.onToggleSketcherUpdater}/>
             ) : (
                 <LayerColorSelector {...layerConfiguratorProps}
                   customPalette={this.props.customPalette}
