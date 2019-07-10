@@ -26,7 +26,6 @@ const StyledHex = styled.div`
 const StyledSortableItem = styled.div`
   display: flex;
   align-items: center;
-  margin-right: 12px;
   padding-top: 6px;
   padding-bottom: 6px;
   z-index: 100;
@@ -63,6 +62,7 @@ const StyledTrash = styled.div`
   }
   height: 12px;
   margin-left: auto;
+  margin-right: 12px;
   :hover {
     cursor: pointer;
   }
@@ -72,8 +72,8 @@ const StyledLine = styled.div`
   width: 220px;
   height: 1px;
   background-color: #6A7485;
-  margin-top: 30px;
-  margin-left: 12px;
+  margin-top: 8px;
+  margin-left: 8px;
 `
 
 const StyledSwatch = styled.div`
@@ -105,12 +105,6 @@ const StyledButton = styled(Button)`
     background-color: transparent;
     color: #fff;
   }
-`;
-
-const StyledAddStep = styled(Button)`
-  float: left;
-  background-color: transparent;
-  margin-bottom: 5px;
 `;
 
 const customStyles = {
@@ -296,10 +290,10 @@ class CustomPalette extends Component {
           }
         </SortableContainer>
 
-        <StyledAddStep
+        <StyledButton
           onClick={this._onColorAdd}>
-          + Add New Step
-        </StyledAddStep>
+          + Add Step
+        </StyledButton>
 
         <StyledLine />
 
