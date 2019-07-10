@@ -1,7 +1,7 @@
-import React, {Component}  from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {SketchPicker} from 'react-color'
+import {SketchPicker} from 'react-color';
 import onClickOutside from 'react-onclickoutside';
 
 // This was put in because 3rd party library react-color doesn't yet cater for customized color of child component <SketchField> which contains HEX/RGB input text box
@@ -10,15 +10,15 @@ import onClickOutside from 'react-onclickoutside';
 const StyledPicker = styled.div`
   .sketch-picker {
     span {
-      color: #6A7485 !important;
+      color: #6a7485 !important;
       font-family: ff-clan-web-pro, 'Helvetica Neue', Helvetica, sans-serif !important;
     }
     input {
       text-align: center;
       font-family: ff-clan-web-pro, 'Helvetica Neue', Helvetica, sans-serif !important;
-      background-color: #3A414C !important;
-      color: #A0A7B4 !important;
-      border-color: #3A414C !important;
+      background-color: #3a414c !important;
+      color: #a0a7b4 !important;
+      border-color: #3a414c !important;
       box-shadow: none !important;
     }
   }
@@ -54,7 +54,7 @@ class CustomPicker extends Component {
             },
             controls: {
               display: 'flex',
-              color: "#FFF"
+              color: '#FFF'
             }
           }}
         />
@@ -63,4 +63,4 @@ class CustomPicker extends Component {
   }
 }
 
-export default onClickOutside(CustomPicker)
+export default onClickOutside(CustomPicker);
