@@ -19,7 +19,7 @@ const StyledPicker = styled.div`
       color: ${props => props.theme.inputColor} !important;
       border-color: ${props => props.theme.secondaryInputBgd} !important;
       box-shadow: none !important;
-      background-color:  ${props => props.theme.inputBgdHover} !important;
+      background-color: ${props => props.theme.inputBgdHover} !important;
     }
   }
 `;
