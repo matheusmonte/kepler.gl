@@ -88,7 +88,7 @@ class ColorSelector extends Component {
   };
 
   handleClickOutside = e => {
-    if (this.state.editing !== false && this.props.showSketcher===false) {
+    if (this.state.editing && (!this.props.showSketcher)) {
       this.setState({editing: false});
     }
   };

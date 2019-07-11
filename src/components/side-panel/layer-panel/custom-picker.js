@@ -10,16 +10,16 @@ import onClickOutside from 'react-onclickoutside';
 const StyledPicker = styled.div`
   .sketch-picker {
     span {
-      color: #6a7485 !important;
+      color: ${props => props.theme.labelColor} !important;
       font-family: ff-clan-web-pro, 'Helvetica Neue', Helvetica, sans-serif !important;
     }
     input {
       text-align: center;
       font-family: ff-clan-web-pro, 'Helvetica Neue', Helvetica, sans-serif !important;
-      background-color: #3a414c !important;
-      color: #a0a7b4 !important;
-      border-color: #3a414c !important;
+      color: ${props => props.theme.inputColor} !important;
+      border-color: ${props => props.theme.secondaryInputBgd} !important;
       box-shadow: none !important;
+      background-color:  ${props => props.theme.inputBgdHover} !important;
     }
   }
 `;
