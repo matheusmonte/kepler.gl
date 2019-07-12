@@ -24,6 +24,19 @@ const StyledPicker = styled.div`
   }
 `;
 
+const PICKER_STYLES = {
+  picker: {
+    width: '200px',
+    padding: '10px 10px 8px',
+    boxSizing: 'initial',
+    background: '#29323C'
+  },
+  controls: {
+    display: 'flex',
+    color: '#FFF'
+  }
+};
+
 class CustomPicker extends Component {
   static propTypes = {
     color: PropTypes.string,
@@ -45,18 +58,7 @@ class CustomPicker extends Component {
           onChange={onChange}
           disableAlpha={true}
           presetColors={[]}
-          styles={{
-            picker: {
-              width: '200px',
-              padding: '10px 10px 8px',
-              boxSizing: 'initial',
-              background: '#29323C'
-            },
-            controls: {
-              display: 'flex',
-              color: '#FFF'
-            }
-          }}
+          styles={PICKER_STYLES}
         />
       </StyledPicker>
     );

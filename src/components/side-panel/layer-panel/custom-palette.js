@@ -134,6 +134,8 @@ const DragHandle = sortableHandle(({className, children}) => (
   <StyledDragHandle className={className}>{children}</StyledDragHandle>
 ));
 
+const DEFAULT_NEW_COLOR = '#F0F0F0';
+
 class CustomPalette extends Component {
   static propTypes = {
     customPalette: PropTypes.shape({
@@ -179,7 +181,7 @@ class CustomPalette extends Component {
   _onColorAdd = () => {
     const {colors} = this.props.customPalette;
     const newColors = [...colors];
-    newColors.push('#F0F0F0');
+    newColors.push(DEFAULT_NEW_COLOR);
     this._setCustomPalette(newColors);
   };
 
