@@ -76,7 +76,7 @@ export default class ColorRangeSelect extends Component {
       },
       custom: {
         type: 'switch',
-        value: true,
+        value: false,
         options: [true, false]
       }
     }
@@ -84,6 +84,16 @@ export default class ColorRangeSelect extends Component {
 
   _updateConfig = ({key, value}) => {
     const currentValue = this.state.config[key].value;
+    //change default custom palette to selected color range
+    if (key === 'custom' && value !== currentValue) {
+      this.props.setCustomPalette({
+        name: 'Custom Palette',
+        type: null,
+        category: 'Uber',
+        colors: this.props.selectedColorRange.colors
+      });
+    }
+
     if (value !== currentValue) {
       this.setState({
         config: {
