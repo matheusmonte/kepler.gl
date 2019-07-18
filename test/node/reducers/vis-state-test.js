@@ -1135,6 +1135,7 @@ test('#visStateReducer -> UPDATE_VIS_DATA.3', t => {
   t.end();
 });
 
+/* Fixed in #618
 test('#visStateReducer -> UPDATE_VIS_DATA.4.Geojson', t => {
   const initialVisState = CloneDeep(INITIAL_VIS_STATE);
 
@@ -1235,6 +1236,7 @@ test('#visStateReducer -> UPDATE_VIS_DATA.4.Geojson', t => {
 
   t.end();
 });
+*/
 
 test('#visStateReducer -> UPDATE_VIS_DATA -> mergeFilters', t => {
   const oldState = CloneDeep(INITIAL_VIS_STATE);

@@ -688,6 +688,7 @@ export default class Layer {
     if (!dataset) {
       return this;
     }
+
     Object.values(this.visualChannels).forEach(channel => {
       const {scale} = channel;
       const scaleType = this.config[scale];
