@@ -1188,17 +1188,6 @@ test('#visStateReducer -> UPDATE_VIS_DATA.4.Geojson', t => {
     }
   };
 
-  // const dataToFeature = geojsonData.features.reduce(
-  //   (accu, f, i) => ({
-  //     ...accu,
-  //     [i]: {
-  //       ...f,
-  //       properties: {...f.properties, index: i}
-  //     }
-  //   }),
-  //   {}
-  // );
-
   const expectedLayer = new GeojsonLayer({
     label: 'king milkshake',
     dataId: 'milkshake',

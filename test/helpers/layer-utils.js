@@ -69,7 +69,7 @@ export function testCreateLayerFromConfig(t, datasets, layerConfig = {}) {
     );
     layer.updateLayerDomain(datasets);
   }, `create a ${layerConfig.type} layer from config should not fail`);
-  // console.log(layer)
+
   return layer;
 }
 
@@ -189,7 +189,6 @@ export function testInitializeDeckLayer(t, layerType, deckLayers) {
       ),
     `initialization of ${layerType} layer render should not fail`
   );
-  // console.log(layerManager.layers[0].state.attributeManager.attributes);
 
   // listen on console.error in editShader, fail the test if any error is logged
   t.deepEqual(
@@ -291,8 +290,3 @@ export const prepareGeojsonDataset = addFilterToData(
     {name: 'TRIPS', value: [4, 12]}
   ]
 ).datasets[dataId];
-// export const preparedDatasetWithNull = addFilterToData(
-//   {rows: rowsWithNull, fields: fieldsWithNull},
-//   dataId,
-//   gpuRangeFilter
-// ).datasets[dataId];
