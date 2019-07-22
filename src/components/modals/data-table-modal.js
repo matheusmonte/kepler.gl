@@ -87,7 +87,7 @@ const DataGridWrapper = styled.div`
   .react-grid-Canvas {
     ${props => props.theme.modalScrollBar};
   }
-  
+
   ${media.palm`
     .react-grid-Container {
       /* TODO: replace data-grid component with react-window */
@@ -95,7 +95,7 @@ const DataGridWrapper = styled.div`
       width: 100vw !important;
     }
   `};
-  
+
 `;
 const StyledModal = styled.div`
   ${media.palm`
@@ -106,10 +106,7 @@ const BooleanFormatter = ({value}) => <span>{String(value)}</span>;
 
 export class DataTableModal extends Component {
 
-  constructor(props) {
-    super(props);
-    this._root = React.createRef();
-  }
+  _root = React.createRef();
 
   _onMouseWheel = e => {
     // Prevent futile scroll, which would trigger the Back/Next page event
@@ -118,7 +115,7 @@ export class DataTableModal extends Component {
     // positions of a container.
 
     // react-data-grid canvas element can be scrolled
-    const canvas = this._root.querySelector('.react-grid-Canvas');
+    const canvas = this._root.current.querySelector('.react-grid-Canvas');
 
     // If canvas can not be scrolled left anymore when we try to scroll left
     const prevent_left = e.deltaX < 0 && canvas.scrollLeft <= 0;

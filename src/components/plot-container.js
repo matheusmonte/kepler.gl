@@ -19,7 +19,7 @@
 // THE SOFTWARE.
 
 // libraries
-import React, {Component} from 'react';
+import React, {Component, createRef} from 'react';
 import PropTypes from 'prop-types';
 import {createSelector} from 'reselect';
 import styled from 'styled-components';
@@ -73,6 +73,8 @@ export default function PlotContainerFactory(MapContainer) {
       }
     }
 
+    plottingAreaRef = createRef();
+
     mapStyleSelector = props => props.mapFields.mapStyle;
     resolutionSelector = props => props.exportImageSetting.resolution;
     scaledMapStyleSelector = createSelector(
@@ -100,7 +102,7 @@ export default function PlotContainerFactory(MapContainer) {
 
     _retrieveNewScreenshot = () => {
 
-      if (this.plottingAreaRef) {
+      if (this.plottingAreaRef.current) {
       // setting windowDevicePixelRatio to 1
       // so that large mapbox base map will load in full
         const savedDevicePixelRatio = window.devicePixelRatio;
@@ -109,7 +111,7 @@ export default function PlotContainerFactory(MapContainer) {
         this.props.startExportingImage();
         const filter = node => node.className !== 'mapboxgl-control-container';
 
-        convertToPng(this.plottingAreaRef, {filter}).then(dataUri => {
+        convertToPng(this.plottingAreaRef.current, {filter}).then(dataUri => {
           this.props.setExportImageDataUri(dataUri);
           this._onRetrievingFinish(savedDevicePixelRatio);
         })
@@ -156,9 +158,7 @@ export default function PlotContainerFactory(MapContainer) {
           style={{position: 'absolute', top: -9999, left: -9999}}
         >
           <div
-            ref={element => {
-              this.plottingAreaRef = element;
-            }}
+            ref={this.plottingAreaRef}
             style={{
               width: exportImageSize.width,
               height: exportImageSize.height
